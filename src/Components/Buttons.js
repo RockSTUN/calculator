@@ -5,11 +5,16 @@ const buts = [{id: 'zero',value:'0'},{id: 'one',value: '1'},{id: 'two',value: '2
 class Buttons extends React.Component {
     constructor(props){
         super(props);
+        this.handleClick = this.handleClick.bind(this);
+        
     }
+        handleClick(but){
+            this.props.addNumber(but.target.innerHTML)
+        }
     
     render(){
         return <div id={'Buttons'} className={'Buttons row-cols-sm-3 border border-secondary container-fluid'}>
-            {buts.map((buts) => <button className={'btn btn-dark '} key={buts.id} id={buts.id}>{buts.value}</button>)}
+            {buts.map((buts) => <button onClick={this.handleClick} className={'btn btn-dark '} key={buts.id} id={buts.id}>{buts.value}</button>)}
         </div>
     };
 };
