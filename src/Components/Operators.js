@@ -7,8 +7,49 @@ class Operators extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
     
+    
     handleClick(but){
-        console.log(but.target.innerHTML)
+        if (this.props.argumentos.join('').match('=')){
+            if(but.target.innerHTML == 'AC'){
+                this.props.resetCalculator()
+            }
+            else{
+            this.props.newCalculation(but.target.innerHTML)    
+            }
+            
+        }
+        else{
+            if (but.target.innerHTML == 'AC'){
+            this.props.resetCalculator();
+        }
+        else{
+                
+        if (this.props.operators == ''){
+            this.props.addOperator(but.target.innerHTML)
+        }
+        else{
+            if(but.target.innerHTML == this.props.operators[1]){
+                return
+            }
+            else{
+            switch(but.target.innerHTML){
+                case '-':
+                    this.props.addOperator(this.props.operators+but.target.innerHTML)
+                    break;
+                default:
+                    this.props.addOperator(but.target.innerHTML)
+            }    
+            }
+            
+                
+        }
+            
+        }
+        }
+        
+        
+        
+        
     };
     
     render(){

@@ -14,8 +14,8 @@ import { reducer, OperationFns, ButtonsFns, EqualFns, DisplayFns} from './ReduxF
 //Create Store:
 const store = createStore(reducer);
 //connect
-const ButtonsConnected = connect(null,ButtonsFns.mapDispatchToProps)(Buttons)
-const OperatorsConnected = connect(null,OperationFns.mapDispatchToProps)(Operators)
+const ButtonsConnected = connect(ButtonsFns.mapStateToProps,ButtonsFns.mapDispatchToProps)(Buttons)
+const OperatorsConnected = connect(OperationFns.mapStateToProps,OperationFns.mapDispatchToProps)(Operators)
 const EqualsConnected = connect(EqualFns.mapStateToProps, EqualFns.mapDispatchToProps)(Equals)
 const DisplayConnected = connect(DisplayFns.mapStateToProps, null)(Display)
 class Warper extends React.Component {

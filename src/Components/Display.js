@@ -3,13 +3,13 @@ import React from 'react';
 class Display extends React.Component {
     constructor(props){
         super(props);
-        console.log(props)
+//         console.log(this.props.argumentos)
     }
     
     render(){
-        return <div className={'Display border'}>
-            <div id={'topDisplayer'}>{this.props.argumentos.join('')}</div>
-            <div id={'midDisplayer'}>{this.props.midDisplayer}</div>
+        return <div  className={'Display border'}>
+            <h2 id={'topdisplay'}>{this.props.argumentos.join('')+this.props.numbers+this.props.operators}</h2>
+            <h4 id={'display'}>{this.props.midDisplayer.toString()}</h4>
         </div>
     };
 };

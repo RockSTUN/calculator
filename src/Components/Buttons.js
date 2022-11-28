@@ -9,7 +9,13 @@ class Buttons extends React.Component {
         
     }
         handleClick(but){
+            if (!this.props.numbers.match(/\./)){
             this.props.addNumber(but.target.innerHTML)
+        }else{
+            if (but.target.innerHTML != '.'){
+                this.props.addNumber(but.target.innerHTML)
+            }
+        }
         }
     
     render(){
